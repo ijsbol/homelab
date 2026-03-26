@@ -1,0 +1,26 @@
+[project]
+name = "homelab"
+version = "0.1.0"
+description = ":3"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.135.2",
+    "jinja2>=3.1.6",
+    "uvicorn>=0.42.0",
+]
+
+[tool.isort]
+multi_line_output = 3
+force_grid_wrap = 3
+include_trailing_comma = true
+lines_after_imports = 2
+
+[tool.pyright]
+reportMissingTypeStubs = false
+
+[dependency-groups]
+dev = [
+    "isort>=8.0.1",
+    "pyright>=1.1.408",
+]
