@@ -4,10 +4,36 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="preload" href="{{ url_for('static', path='css/base.style.css') }}" as="style">
-        <link rel="preload" href="{{ url_for('static', path='css/home.style.css') }}" as="style">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/base.style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/home.style.css') }}">
     </head>
     <body>
+        <div class="container">
+            <div class="mullvad">
+                <div class="status"></div>
+            </div>
+        </div>
+        <script>
+            async function fetchMullvad() {
+                fetch('/api/mullvad/health', {
+                        method: 'GET'
+                    })
+                    .then(function(response) { return response.json(); })
+                    .then(function(json) {
+                        if (json.connected == true) {
+                            document.querySelector(".mullvad .status").classList.add("connected");
+                            document.querySelector(".mullvad .status").textContent = `CONNECTED TO ${json.city}`;
+                        } else {
+                            document.querySelector(".mullvad .status").classList.remove("connected");
+                            document.querySelector(".mullvad .status").textContent = `NOT CONNECTED`;
+                        }
+                    }
+                );
+                setTimeout(fetchMullvad, 60000);
+            }
 
+            window.onload = fetchMullvad;
+
+        </script>
     </body>
 </html>

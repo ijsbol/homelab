@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-VariableFont_wdth.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Italic-VariableFont_wdth.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Archivo";
+    src: url("../fonts/Archivo-VariableFont_wdth.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: black;
+}
+
+:root {
+    --text: #ffbdfc;
+    --background: #14021d;
+    --primary: #bc2cd8;
+    --secondary: #ffe5fc;
+    --accent: #ff3df5;
+    --green: #58a458;
+    --red: #bb4f4f;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    color: var(--text);
+}
+
+.container {
+    width: 800px;
+    height: 450px;
+    background: var(--background);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.mullvad {
+    font-family: "Archivo", sans-serif;
+    color: var(--primary);
+    padding: 0.6rem;
+}
+
+.mullvad .status {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--red);
+}
+
+.mullvad .status.connected {
+    color: var(--green);
+}

@@ -4,6 +4,8 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 from homelab.routers import router as home_router
+from homelab.routers.api.mullvad.router import router as mullvad_router
+
 
 __all__: tuple[str, ...] = ()
 
@@ -24,4 +26,4 @@ app.mount(
 )
 
 app.include_router(home_router)
-
+app.include_router(mullvad_router)
